@@ -1,0 +1,49 @@
+.site-button
+{
+    text-decoration: none;
+    min-height: 50px;
+    width: fit-content;
+    padding: 0px 30px;
+    background-color: #7B4255;
+    border-radius: 42px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: 200ms;
+    white-space: nowrap;
+}
+
+.button-text
+{
+    text-decoration: none;
+}
+
+a
+{
+    text-decoration: none;
+    font-family: "Inria Sans",sans-serif;
+    font-size: 18px;
+    color: white;
+    font-weight: 400;
+}
+
+.site-button:hover
+{
+    background-color: #40202A;
+    cursor: pointer;
+}
+
+.site-button:active a
+{
+    transition: none;
+    background-color: white;
+    color: black;
+}
+
+.site-button:active
+{
+    transition: none;
+    background-color: white;
+    color: black;
+}

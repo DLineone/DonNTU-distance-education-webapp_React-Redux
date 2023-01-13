@@ -1,0 +1,146 @@
+.site-footer
+{
+    min-height: 355px;
+    width: 100%;
+    background-color: #7B4255;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.site-footer>*
+{
+    max-width: 330px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.site-footer
+{
+    color: white;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.footer-title
+{
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow: 1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 1px 0 #000,
+    0px -1px 0 #000,
+    -1px 0px 0 #000,
+    1px 0px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 1px 0 #000,
+    0px -1px 0 #000,
+    -1px 0px 0 #000,
+    1px 0px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 4px 4px rgba(0, 0, 0, 0.8); 
+    width: max-content;
+    white-space: nowrap;
+}
+
+.footer-content
+{
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.site-messenger>.footer-content
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 150px;
+    grid-row-gap: 50px;
+}
+
+.site-messenger
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.site-messenger>.footer-title
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 330px;
+}
+
+a
+{
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+.footer-content>div>.link
+{
+    text-decoration: underline;
+}
+
+.footer-content>div>.link:hover
+{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.footer-content>div>.popup
+{
+    text-decoration: none;
+    position: absolute;
+    bottom: 25px;
+    left: 150px;
+    width: max-content;
+    height: max-content;
+    padding: 5px;
+    background-color: #40202A;
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+
+}
+
+.footer-content>div>.link:active ~ .popup
+{
+    opacity: 1;
+    z-index: 2;
+}
+
+.footer-content>div>.link:not(:active) ~ .popup
+{
+    opacity: 0;
+    transition: 500ms;
+    transition-delay: 1s;
+}

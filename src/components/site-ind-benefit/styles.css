@@ -1,0 +1,37 @@
+.ind-benefit
+{
+    max-width: 450px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.benefit-title-text, .benefit-text
+{
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+}
+
+.benefit-title-text
+{
+    font-size: 32px;
+}
+
+.benefit-text
+{
+    font-size: 18px;
+    text-align: justify;
+    text-indent: 50px;
+}
+
+.benefit-title
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}

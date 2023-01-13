@@ -1,0 +1,33 @@
+.site-motivation
+{
+    min-height: 877px;
+    background-image: url("./../../assets/motivationbackground.png");
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.site-motivation>*
+{
+    padding-top: 150px;
+    padding-left: 60px;
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: 400;
+}
+
+.white
+{
+    color: white;
+}
+
+.text1
+{
+    font-size: 48px;
+}
+
+.text2
+{
+    font-size: 36px;
+}

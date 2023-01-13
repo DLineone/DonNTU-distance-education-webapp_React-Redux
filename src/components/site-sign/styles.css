@@ -1,0 +1,13 @@
+.site-sign
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+}
+
+.site-sign>*
+{
+    margin-right: 50px;
+}
+

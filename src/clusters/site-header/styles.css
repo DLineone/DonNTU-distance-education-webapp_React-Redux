@@ -1,0 +1,69 @@
+.site-header
+{
+    min-height: 100px;
+    width: 100%;
+    background-color: #7B4255;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0% 3%;
+    max-height: 100px !important;
+    max-width: 24%;
+}
+
+.header-logo>*
+{
+    max-height: 100px;
+    margin: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header-logo-text
+{
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'Inria Sans', sans-serif;
+
+    text-shadow: 1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 1px 0 #000,
+    0px -1px 0 #000,
+    -1px 0px 0 #000,
+    1px 0px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 1px 0 #000,
+    0px -1px 0 #000,
+    -1px 0px 0 #000,
+    1px 0px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 4px 4px rgba(0, 0, 0, 0.8); 
+    width: max-content;
+    white-space: nowrap;
+}
+
+.site-nav, .site-sign
+{
+    width: 43%;
+}
