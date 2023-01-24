@@ -9,6 +9,11 @@
     justify-content: space-between;
 }
 
+.site-header a
+{
+    text-decoration: none;
+}
+
 .header-logo
 {
     display: flex;

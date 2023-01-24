@@ -5,7 +5,7 @@ import "./styles.css";
 function SiteButtonImageText(props) {
     return (
         <div className='site-button'>
-            <Link className='link-button' to={props.link}>
+            <Link className='link-button' to={props.to}>
                 <object className='button-img' data={props.img} type="image/svg+xml"/>
                 <div className='button-text'>
                     {props.name}

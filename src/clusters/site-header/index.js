@@ -15,13 +15,13 @@ function SiteHeader() {
                 </p>
             </div>
             <SiteNav>
-                <SiteButtonText name="Главная" to="./"/>
-                <SiteButtonText name="О нас" to="./"/>
-                <SiteButtonText name="О проекте" to="./"/>
+                <SiteButtonText name="Главная" to="/"/>
+                <SiteButtonText name="О нас" to="/"/>
+                <SiteButtonText name="О проекте" to="/"/>
             </SiteNav>
             <SiteSign>
-                <SiteButtonImageText name="Вход" to="./" img="./../../assets/sign-in.svg"/>
-                <SiteButtonImageText name="Регистрация" to="./" img="./../../assets/registration.svg"/>
+                <SiteButtonImageText name="Вход" to="/login" img="./../../assets/sign-in.svg"/>
+                <SiteButtonImageText name="Регистрация" to="/registration" img="./../../assets/registration.svg"/>
             </SiteSign>
         </div>
     );

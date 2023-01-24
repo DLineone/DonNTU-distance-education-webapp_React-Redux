@@ -5,7 +5,7 @@ import "./styles.css";
 function SiteButtonText(props) {
     return ( 
         <div className='site-button'>
-            <Link to={props.link}>
+            <Link to={props.to}>
                 <div className='button-text'>
                     {props.name}
                 </div>

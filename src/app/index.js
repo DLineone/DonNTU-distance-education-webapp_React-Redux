@@ -1,14 +1,27 @@
 import React from "react";
-import {Route, Routes} from "react-router-dom";
+import { RouterProvider, createBrowserRouter} from "react-router-dom";
 import Welcome from "./welcome";
+import Registration from './registration';
+import Login from './login';
 
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Welcome/>,
+        errorElement: <div>not found</div>
+    },
+    {
+        path: "/registration",
+        element: <Registration/>   
+    },
+    {
+        path: "/login",
+        element: <Login/>   
+    }
+]);
 
 const App = () =>{
-    return (
-        <Routes>
-            <Route path={""} element={<Welcome/>}/>
-        </Routes>
-    )
+    return <RouterProvider router={router}/>
 }
 
 export default React.memo(App);

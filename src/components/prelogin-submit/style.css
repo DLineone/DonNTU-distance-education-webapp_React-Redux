@@ -1,0 +1,44 @@
+.prelogin-submit
+{    
+    padding: 0px 0px 20px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+    max-height: 55px;
+}
+
+.prelogin-submit>button
+{
+    min-height: 50px;
+    height: 100%;
+    width: 40%;
+    min-width: fit-content;
+    background-color: #9299AE;
+    border-color: transparent;
+    font-family: "Inria Sans", sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 15px;
+    transition: 200ms;
+}
+
+.prelogin-submit>button:hover
+{
+    background-color: #657694;
+    transition: 200ms;
+}
+.prelogin-submit>button:focus
+{
+    background-color: #657694;
+    transition: none;
+}
+.prelogin-submit>button:active
+{
+    transition: none;
+    background-color: white;
+    color: #263E64;
+}

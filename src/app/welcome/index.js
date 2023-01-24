@@ -6,6 +6,7 @@ import SiteFooter from './../../clusters/site-footer';
 
 
 function Welcome() {
+    document.body.style.overflow = "auto";
     return ( 
         <div className='site-welcome'>
             <SiteHeader/>

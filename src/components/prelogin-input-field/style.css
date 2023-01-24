@@ -1,0 +1,33 @@
+.prelogin-input-field
+{
+    padding: 0px 0px 20px 0px;
+    width: 100%;
+    height: 30%;
+    max-height: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.prelogin-input-field>input
+{
+    min-height: 55px;
+    width: 90%;
+    border-radius: 20px;
+    border-color: transparent;
+    font-family: "Inria Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: white;
+    border: none;
+    padding: 0px;
+    padding-left: 7px;
+}
+
+.prelogin-input-field>input:focus
+{
+    outline: none;
+    background-color: #d5e1f5;
+}
