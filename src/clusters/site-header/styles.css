@@ -14,7 +14,12 @@
     text-decoration: none;
 }
 
-.header-logo
+.site-header object
+{
+    pointer-events: none;
+}
+
+.site-header>.header-logo
 {
     display: flex;
     flex-direction: row;

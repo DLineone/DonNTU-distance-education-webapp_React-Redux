@@ -5,6 +5,7 @@ import PreloginInputField from './../../components/prelogin-input-field';
 import PreloginSubmit from './../../components/prelogin-submit/index';
 
 function Login() {
+    document.body.style.overflow = "hidden";
     return ( 
         <div className='login'>
             <PreloginLayout>

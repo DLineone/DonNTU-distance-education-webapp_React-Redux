@@ -1,0 +1,53 @@
+.teacher-discipline-showcase
+{
+    height: 40%;
+    max-height: 300px;
+    width: 100%;
+    max-width: 1600px;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teacher-discipline-showcase>.button-left
+{
+    position: absolute;
+    left: 0px;
+    height: max-content;
+    width: max-content;
+    cursor: pointer;
+    z-index: 40;
+}
+
+.teacher-discipline-showcase>.button-right
+{
+    position: absolute;
+    right: 0px;
+    height: max-content;
+    width: max-content;
+    cursor: pointer;
+    z-index: 40;
+}
+
+.teacher-discipline-showcase .showcase-item
+{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    color: white;
+    font-family: "Inria Sans", sans-serif;
+    font-size: 32px;
+}
+
+.teacher-discipline-showcase .showcase-item span
+{
+    position: absolute;
+    z-index: 20;
+    top: 10px;
+    left: 10px;
+}

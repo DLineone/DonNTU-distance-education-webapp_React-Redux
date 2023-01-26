@@ -21,9 +21,6 @@ function Registration() {
                 </PreloginInput>
                 <PreloginInput text=
                     {`СОЗДАТЬ УЧЕТНУЮ ЗАПИСЬ`}>
-                    <PreloginInputField placeholder="Фамилия"/>
-                    <PreloginInputField placeholder="Имя"/>
-                    <PreloginInputField placeholder="Отчество"/>
                     <PreloginInputField placeholder="ИНН(СНИЛС)"/>
                     <PreloginInputField placeholder="Логин"/>
                     <PreloginInputField placeholder="E-mail"/>

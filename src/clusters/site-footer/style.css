@@ -25,6 +25,11 @@
     font-family: 'Inria Sans', sans-serif;
 }
 
+.site-footer object
+{
+    pointer-events: none;
+}
+
 .footer-title
 {
     font-weight: 700;
