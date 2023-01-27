@@ -1,0 +1,87 @@
+.teacher-discipline
+{
+    height: 35%;
+    min-height: 450px;
+    width: 20%;
+    min-width: 400px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    font-family: "Inria Sans", sans-serif;
+    font-size: 24px;
+    color: black;
+}
+
+
+
+.teacher-discipline .sub-menu
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.teacher-discipline .sub-menu>*,.group-flows,.title-name
+{
+    margin: 20px 20px;
+}
+
+.teacher-discipline .sub-menu-button>a
+{
+    text-decoration: none;
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    background-color: #7B4255;
+    border-radius: 10px;
+}
+
+.teacher-discipline .group-flows>span
+{
+    margin-right: 40px;
+}
+
+.teacher-discipline .title-name
+{
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.teacher-discipline select
+{
+    font-family: "Inria Sans", sans-serif;
+    font-size: 24px;
+    color: black;
+}
+
+.teacher-discipline .sub-sub-menu
+{
+    cursor: pointer;
+}
+
+.teacher-discipline .sub-sub-menu>object
+{
+    pointer-events: none;
+}
+
+.teacher-discipline .sub-menu-button>a:hover
+{
+    background-color: #572f3c;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.teacher-discipline .sub-menu-button>a:active
+{
+    background-color: white;
+    transition: none;
+    color: black;
+}

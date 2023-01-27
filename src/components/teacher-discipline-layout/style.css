@@ -1,0 +1,109 @@
+.teacher-disciplins-layout
+{
+    height: 100%;
+    width: 100%;
+}
+
+.teacher-disciplins-layout-body
+{
+    height: 77%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 5%;
+    column-gap: 5%;
+
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+}
+
+.teacher-disciplins-layout-menu
+{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.create-discipline
+{
+    
+}
+
+.create-discipline>a
+{
+    text-decoration: none;
+    padding: 10px;
+    height: max-content;
+    width: max-content;
+    background-color: #7B4255;
+    border-radius: 10px;
+    transition: 200ms;
+}
+
+.create-discipline>a:hover
+{
+    background-color: #572f3c;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.create-discipline>a:active
+{
+    background-color: white;
+    transition: none;
+    color: black;
+}
+
+.teacher-disciplins-layout object
+{
+    pointer-events: none;
+}
+
+.teacher-disciplins-layout .sort-menu
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+    height: 100%;
+}
+
+.teacher-disciplins-layout .search-discipline
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 45%;
+}
+
+.teacher-disciplins-layout .sort-block
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 45%;
+}
+
+.teacher-disciplins-layout .search-discipline>object
+{
+    pointer-events: none;
+    cursor: pointer;
+}

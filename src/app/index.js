@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route} from "react-router-dom";
 import Welcome from "./welcome";
 import Registration from './registration';
@@ -6,13 +6,14 @@ import Login from './login';
 import TeacherPage from './teacher-page';
 import TeacherHome from './teacher-page/teacher-home';
 import TeacherProfile from './teacher-page/teacher-profile';
+import TeacherDisciplins from './teacher-page/teacher-disciplins';
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Welcome/>,
-        errorElement: <div>not found UWU</div>
+        errorElement: <div>not found</div>
     },
     {
         path: "/registration",
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         [
             {
                 index: true,
-                element: <div>not found UWU</div>
+                element: <div>not found</div>
             },
             {
                 path: "home",
@@ -41,7 +42,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "disciplins",
-                element: <div></div>
+                element: <TeacherDisciplins/>,
+                children:
+                [
+                    {}
+                ]
             },
         ],
     }
