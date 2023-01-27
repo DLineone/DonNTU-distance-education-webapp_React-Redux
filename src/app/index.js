@@ -5,6 +5,7 @@ import Registration from './registration';
 import Login from './login';
 import TeacherPage from './teacher-page';
 import TeacherHome from './teacher-page/teacher-home';
+import TeacherProfile from './teacher-page/teacher-profile';
 
 
 const router = createBrowserRouter([
@@ -27,9 +28,21 @@ const router = createBrowserRouter([
         children:
         [
             {
+                index: true,
+                element: <div>not found UWU</div>
+            },
+            {
                 path: "home",
                 element: <TeacherHome/>
-            }
+            },
+            {
+                path: "profile",
+                element: <TeacherProfile/>
+            },
+            {
+                path: "disciplins",
+                element: <div></div>
+            },
         ],
     }
 ]);
