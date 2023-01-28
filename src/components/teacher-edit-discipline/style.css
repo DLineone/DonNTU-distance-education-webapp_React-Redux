@@ -1,0 +1,130 @@
+.teacher-edit-discipline
+{
+    height: 90%;
+    width: 50%;
+    margin-bottom: 100px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    padding: 10px;
+
+    font-family: "Inria Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: black;
+}
+
+.teacher-edit-discipline>*
+{
+    width: 100%;
+}
+
+.teacher-edit-discipline>.title
+{
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.teacher-edit-discipline>.disclaimer
+{
+    color: #382C42;
+}
+
+.teacher-edit-discipline>.input-element>.name
+{
+    color: #736F76;
+}
+
+.teacher-edit-discipline button
+{
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 24px;
+    background-color: #7B4255;
+    transition: 200ms;
+}
+
+.teacher-edit-discipline button:hover
+{
+    background-color: #522b38;
+    transition: 200ms;
+}
+
+.teacher-edit-discipline button:active
+{
+    color: black;
+    background-color: white;
+    transition: none;
+}
+
+.teacher-edit-discipline>.input-element,
+.teacher-edit-discipline>.input-file,
+.teacher-edit-discipline>.owner
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 30px;
+}
+
+.teacher-edit-discipline>.input-element>.name,
+.teacher-edit-discipline>.input-element>input,
+.teacher-edit-discipline>.input-element>select,
+.teacher-edit-discipline>.input-element>button,
+.teacher-edit-discipline>.input-element>.file-name
+{
+    width: 40%;
+    font-size: 28px;
+}
+
+.teacher-edit-discipline>.menu
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 10px;
+}
+
+.teacher-edit-discipline>.owner
+{
+    column-gap: 20%;
+}
+
+.teacher-edit-discipline .exit
+{
+    background-color: #E7E7E7;
+    border: 2px solid black;
+    color: black;
+    transition: 200ms;
+}
+
+.teacher-edit-discipline .exit:hover
+{
+    background-color: #bdbdbd;
+    transition: 200ms;
+}
+
+.teacher-edit-discipline .exit:active
+{
+    background-color: white;
+    transition: none;
+}
+
+.teacher-edit-discipline>.input-element>select,
+.teacher-edit-discipline>.input-element>input
+{
+    font-size: 28px;
+    width: 50%;
+}

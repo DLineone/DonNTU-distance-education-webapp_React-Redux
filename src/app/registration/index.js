@@ -25,7 +25,7 @@ function Registration() {
                     <PreloginInputField placeholder="Логин"/>
                     <PreloginInputField placeholder="E-mail"/>
                     <PreloginInputField placeholder="Пароль"/>
-                    <PreloginSubmit text="Зерегистрироваться"/>
+                    <PreloginSubmit text="Зарегистрироваться"/>
                 </PreloginInput>
             </PreloginLayout>
         </div>

@@ -7,6 +7,10 @@ import TeacherPage from './teacher-page';
 import TeacherHome from './teacher-page/teacher-home';
 import TeacherProfile from './teacher-page/teacher-profile';
 import TeacherDisciplins from './teacher-page/teacher-disciplins';
+import ModalLayout from './../clusters/modal-layout/index';
+import TeacherCreateDiscipline from './../components/teacher-create-discipline/index';
+import TeacherEditDiscipline from './../components/teacher-edit-discipline/index';
+import TeacherAddFlow from './../components/teacher-add-flow/index';
 
 
 const router = createBrowserRouter([
@@ -45,7 +49,18 @@ const router = createBrowserRouter([
                 element: <TeacherDisciplins/>,
                 children:
                 [
-                    {}
+                    {
+                        path: "create",
+                        element: <ModalLayout><TeacherCreateDiscipline/></ModalLayout>
+                    },
+                    {
+                        path: "edit",
+                        element: <ModalLayout><TeacherEditDiscipline/></ModalLayout>
+                    },
+                    {
+                        path: "add",
+                        element: <ModalLayout><TeacherAddFlow/></ModalLayout>
+                    },
                 ]
             },
         ],

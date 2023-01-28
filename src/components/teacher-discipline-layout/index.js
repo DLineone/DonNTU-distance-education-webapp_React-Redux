@@ -7,7 +7,7 @@ function TeacherDisciplinsLayout(props) {
         <div className='teacher-disciplins-layout'>
             <div className='teacher-disciplins-layout-menu'>
                 <div className='create-discipline'>
-                    <Link to="">Создать дисциплину</Link>
+                    <Link to="create">Создать дисциплину</Link>
                 </div>
                 <div className='sort-menu'>
                     <div className='sort-block'>
@@ -26,6 +26,7 @@ function TeacherDisciplinsLayout(props) {
             <div className='teacher-disciplins-layout-body'>
                 {props.children}
             </div>
+            {props.outlet}
         </div>
     );
 }

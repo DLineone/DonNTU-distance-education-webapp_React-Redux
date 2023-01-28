@@ -1,3 +1,11 @@
+html, body
+{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
 .teacher-discipline
 {
     height: 35%;
@@ -26,6 +34,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     width: 100%;
 }
 
@@ -84,4 +93,36 @@
     background-color: white;
     transition: none;
     color: black;
+}
+
+.teacher-discipline .sub-menu>.popup-menu
+{
+    position: absolute;
+    z-index: 5;
+    border: 2px solid #572f3c;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    border-radius: 10px;
+    padding: 10px;
+
+    top: 30px;
+}
+
+.teacher-discipline .sub-menu>.popup-menu>a
+{
+    color: black;
+}
+
+.teacher-discipline>.group-flows>select
+{
+    width: 40%;
+}
+
+.teacher-discipline>.group-flows
+{
+    width: 100%;
 }

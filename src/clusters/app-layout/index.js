@@ -1,8 +1,22 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
+import ClickAwayListener from 'react-click-away-listener';
 
 function AppLayout(props) {
+
+    const [popup, setPopup] = useState(false);
+
+    function onClickProfile()
+    {
+        setPopup(false);
+    }
+
+    function onClickExit()
+    {
+        setPopup(false);
+    }
+
     return ( 
         <div className='app-layout'>
             <div className='app-header'>
@@ -15,8 +29,21 @@ function AppLayout(props) {
                     {props.title}
                 </div>
                 <div className='header-menu'>
-                    <object className='button-img' data="./../../assets/app-notification.svg" type="image/svg+xml"/>
-                    <object className='button-img' data="./../../assets/user-photo.svg" type="image/svg+xml"/>
+                    <div className='button-img'>
+                        <object className='button-img' data="./../../assets/app-notification.svg" type="image/svg+xml"/>
+                    </div>
+                    <div className='button-img' onClick={() => setPopup(true)}>
+                        <object  data="./../../assets/user-photo.svg" type="image/svg+xml"/>
+                    </div>
+                    
+                    {popup && (
+                        <ClickAwayListener onClickAway={() => setPopup(false)}>
+                            <div className={'popup-menu'}>
+                                <Link onClick={onClickProfile} to="/teacher/profile">Профиль</Link>
+                                <Link onClick={onClickExit} to="/">Выйти</Link>
+                            </div>
+                        </ClickAwayListener>
+                    )}
                 </div>
             </div>
             <div className='bottom-part'>

@@ -111,3 +111,36 @@
     height: 100%;
     width: 100%;
 }
+
+.app-layout .button-img
+{
+    cursor: pointer;
+}
+
+.app-layout .button-img>object
+{
+    pointer-events: none;
+}
+
+
+.app-layout .header-menu>.popup-menu
+{
+    position: absolute;
+    z-index: 5;
+    border: 2px solid #572f3c;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    border-radius: 10px;
+    padding: 10px;
+
+    top: 55px;
+}
+
+.app-layout .header-menu>.popup-menu>a
+{
+    color: black;
+}
