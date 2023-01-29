@@ -47,6 +47,7 @@ function TeacherDiscipline(props) {
                 else
                 {
                     localStorage.setItem("resavedata", JSON.stringify(isok));
+                    localStorage.setItem("resavedatadist", discipline.id_list_discipline);
                     setPopup(false);
                     navigate("edit");
                 }
@@ -77,6 +78,7 @@ function TeacherDiscipline(props) {
                 else
                 {
                     localStorage.setItem("resavedata", JSON.stringify(isok));
+                    localStorage.setItem("resavedatadist", discipline.id_list_discipline);
                     setPopup(false);
                     navigate("add");
                 }
@@ -90,6 +92,7 @@ function TeacherDiscipline(props) {
     
     return (  
         <div className='teacher-discipline'>
+            {data && <>
             <div className='title-photo'>
                 <img src="./../../../assets/TEMPLATE-discipline-background.png" alt="" />
             </div>
@@ -120,7 +123,7 @@ function TeacherDiscipline(props) {
                                 </div>
                         </ClickAwayListener>
                     )}
-            </div>
+            </div></>}
         </div>
     );
 }

@@ -36,6 +36,17 @@ function TeacherCreateDiscipline(props) {
         })()
     }, []);
 
+    useEffect(()=>{
+        console.log(data)
+        setSend({
+            ...senddata,
+            "id_institute":data?.listinstitute[0].id_institute, 
+            "id_faculty":data?.listfaculty[0].id_faculty, 
+            "id_department":data?.listdepartment[0].id_department, 
+        });
+    }, [data]);
+
+
     const onChange = useCallback((e, nameval)=>{
         setSend({...senddata, [nameval]: e.target.value});
     },[senddata]);
