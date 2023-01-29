@@ -48,6 +48,7 @@ function TeacherDiscipline(props) {
                 {
                     localStorage.setItem("resavedata", JSON.stringify(isok));
                     localStorage.setItem("resavedatadist", discipline.id_list_discipline);
+                    localStorage.setItem("resavedatadistname", discipline.name);
                     setPopup(false);
                     navigate("edit");
                 }
@@ -79,6 +80,7 @@ function TeacherDiscipline(props) {
                 {
                     localStorage.setItem("resavedata", JSON.stringify(isok));
                     localStorage.setItem("resavedatadist", discipline.id_list_discipline);
+                    localStorage.setItem("resavedatadistname", discipline.name_disc);
                     setPopup(false);
                     navigate("add");
                 }

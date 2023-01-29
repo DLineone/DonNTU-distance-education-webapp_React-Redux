@@ -51,6 +51,8 @@ function TeacherEditDiscipline(props) {
                 }
                 else
                 {
+                    localStorage.removeItem("resavedatadist");
+                    localStorage.removeItem("resavedata");
                     alert(isok.info)
                     navigate("../")
                 }
@@ -66,7 +68,7 @@ function TeacherEditDiscipline(props) {
         <div className='teacher-edit-discipline'>
         {data && <>
             <div className='title'>
-                <span>Редактировать дисциплинe "Нименование"</span>
+                <span>Редактировать дисциплинe "{data.name}"</span>
             </div>
             <div className='disclaimer'>
                 <span>Введите новое название дисциплины и отредактируйте другую информацию о ней</span>
@@ -116,7 +118,12 @@ function TeacherEditDiscipline(props) {
                 <button onClick={editDiscipline} className='create'>
                     Сохранить
                 </button>
-                <button onClick={()=>{navigate("../"); localStorage.removeItem("resavedata");}} className='exit'>
+                <button onClick={
+                    ()=>{navigate("../"); 
+                    localStorage.removeItem("resavedata");
+                    localStorage.removeItem("resavedatadist");
+                    localStorage.removeItem("resavedatadistname");}} className='exit'
+                >
                     Отмена
                 </button>
             </div></>}
