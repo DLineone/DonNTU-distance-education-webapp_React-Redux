@@ -2,9 +2,11 @@ import React,{useState} from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
 import ClickAwayListener from 'react-click-away-listener';
+import { useNavigate } from 'react-router-dom';
 
 function AppLayout(props) {
 
+    const navigate = useNavigate();
     const [popup, setPopup] = useState(false);
 
     function onClickProfile()
@@ -14,6 +16,17 @@ function AppLayout(props) {
 
     function onClickExit()
     {
+        let send = {
+            "ButtonExit":{
+                "token":sessionStorage.getItem("token"),
+                "id_user":sessionStorage.getItem("id_user")}
+        }
+        fetch('http://ServerWebsite:3030/view/',{
+            method: "POST",
+            body: JSON.stringify(send)
+        });
+        sessionStorage.clear();
+        navigate("/");
         setPopup(false);
     }
 

@@ -9,17 +9,17 @@ function TeacherProfileLayout(props) {
         <div className='profile-layout'>
             <div className='profile-header'>
                 <div className='profile-photo'>
-                    <img src={teacher.photo} alt="" />
+                    <img src="./../../../assets/TEMPLATE-profile-photo.png" alt="" />
                 </div>
                 <div className='header-content'>
                     <div className='header-content-title'>
-                        <span>{`${teacher.surname} ${teacher.name} ${teacher.patronimyc}`}</span>
+                        <span>{`${teacher.FIO}`}</span>
                     </div>
                     <div className='header-content-body'>
                         <span>Статус: {teacher.status ? "Преподаватель" : "Уволен"}</span>
                         <span>Зарегистрирован(-а): {teacher.date_registration}</span>
                         <span>Права админа: {teacher.rights_admin ? "Присутствуют" : "Отсутствуют"}</span>
-                        <span>Последний раз на сайте: {teacher.date_last_visit}</span>
+                        <span>Последний раз на сайте: {teacher.date_last_visit || "-"}</span>
                     </div>
                 </div>
             </div>
@@ -48,15 +48,15 @@ function TeacherProfileLayout(props) {
                                     Область
                                 </div>
                                 <div className='value'>
-                                    {teacher.place_of_residence}
+                                    {teacher.place_of_residence || "-"}
                                 </div>
                             </div>
                             <div className='enter'>
                                 <div className='name'>
-                                    {teacher.type_of_settlement}
+                                    {teacher.name_type}
                                 </div>
                                 <div className='value'>
-                                    {teacher.name_of_settlement}
+                                    {teacher.name_settlements}
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ function TeacherProfileLayout(props) {
                                     Адрес электронной почты
                                 </div>
                                 <div className='value'>
-                                    {teacher.emale}
+                                    {teacher.email}
                                 </div>
                             </div>
                             <div className='enter'>
@@ -102,7 +102,7 @@ function TeacherProfileLayout(props) {
                                     Факультет
                                 </div>
                                 <div className='value'>
-                                    {teacher.facility}
+                                    {teacher.faculty}
                                 </div>
                             </div>
                             <div className='enter'>
@@ -118,7 +118,7 @@ function TeacherProfileLayout(props) {
                                     Должность
                                 </div>
                                 <div className='value'>
-                                    {teacher.positioin}
+                                    {teacher.position}
                                 </div>
                             </div>
                             <div className='enter'>

@@ -22,8 +22,8 @@ function TeacherDisciplineShowcase(props) {
             </div>
                 {props.disciplins.slice(displace, displace + 5).map(item => 
                     <div className='showcase-item'>
-                        <img src={item.img} alt="" />
-                        <span>{item.name}</span>
+                        <img src="./../../assets/TEMPLATE-discipline1.png" alt="" />
+                        <span>{item.name_disc}</span>
                     </div>
                 )}
             <div className='button-right'>

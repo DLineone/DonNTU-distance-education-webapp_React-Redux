@@ -4,7 +4,7 @@ import "./style.css";
 function PreloginSubmit(props) {
     return ( 
         <div className='prelogin-submit'>
-            <button>{props.text}</button>
+            <button onClick={props.callback}>{props.text}</button>
         </div>
     );
 }

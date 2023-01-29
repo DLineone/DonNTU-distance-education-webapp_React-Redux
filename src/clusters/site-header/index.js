@@ -21,7 +21,8 @@ function SiteHeader() {
             </SiteNav>
             <SiteSign>
                 <SiteButtonImageText name="Вход" to="/login" img="./../../assets/sign-in.svg"/>
-                <SiteButtonImageText name="Регистрация" to="/registration" img="./../../assets/registration.svg"/>
+                { !sessionStorage.getItem("token") &&
+                <SiteButtonImageText name="Регистрация" to="/registration" img="./../../assets/registration.svg"/>}
             </SiteSign>
         </div>
     );

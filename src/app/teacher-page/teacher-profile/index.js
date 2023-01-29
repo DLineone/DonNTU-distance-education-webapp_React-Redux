@@ -1,40 +1,55 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import TeacherProfileLayout from './../../../components/teacher-profile-layout/index';
 import { useOutletContext } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function TeacherProfile() {
 
     // @ts-ignore
     const [setTitle] = useOutletContext();
+    const [data, setData] = useState(undefined);
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        setTitle('МОЙ ПРОФИЛЬ');
+    useEffect(()=>{
+        (()=>{
+            if(!sessionStorage.getItem("token"))
+            {
+                navigate("/");
+                return;
+            }
+              
+            setTitle('МОЙ ПРОФИЛЬ');
+            let send = {
+                "ProfileTeacher":{
+                    "token":sessionStorage.getItem("token"),
+                    "id_user":sessionStorage.getItem("id_user"),
+                    "id_teacher":sessionStorage.getItem("id_teacher")
+                }
+            }
+            fetch('http://ServerWebsite:3030/view/',{
+                method: "POST",
+                body: JSON.stringify(send)
+            })
+                .then(response => response.json())
+                .then(databack => {
+                    if(databack?.error)
+                    {
+                        alert(databack.error);
+                    }
+                    else
+                    {
+                        setData(databack);
+                        console.log(databack[0].arraydiscipline);
+                        console.log(databack);
+                    }
+                });
+        })()
     }, []);
-
-    const teacher = {
-        photo: "./../../../assets/TEMPLATE-profile-photo.png",
-        surname: "Фамилия",
-        name: "Имя",
-        patronimyc: "Отчество",
-        date_registration: "2022.09.01",
-        date_last_visit: "2022.09.15",
-        rights_admin: true,
-        status: true,
-        country:"Донецкая народная республика",
-        place_of_residence:"-",
-        type_of_settlement:"Город",
-        name_of_settlement:"Донецк",
-        emale:"mail@yandex.com",
-        phone:"+7(949)-457-65-91",
-        institute:"Компьютерных наук и технологий",
-        facility:"Информационных систем и технологий",
-        department:"Автоматизиованных систем управления",
-        positioin:"Доцент",
-    };
 
     return (  
         <div className='teacher-profile' style={{height: "100%", width: "100%"}}>
-            <TeacherProfileLayout teacher={teacher}/>
+            {data && 
+            <TeacherProfileLayout teacher={data}/>}
         </div>
     );
 }

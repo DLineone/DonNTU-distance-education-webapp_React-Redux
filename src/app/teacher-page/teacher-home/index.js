@@ -1,55 +1,49 @@
-import React, {useEffect} from 'react';
+import React,{ useEffect, useState} from 'react';
 import { useOutletContext } from "react-router-dom";
 import TeacherHomeLayout from './../../../clusters/teacher-home-layout';
 import TeacherDisciplineShowcase from './../../../components/teacher-discipline-showcase/index';
 import AppHomeButtons from './../../../components/app-home-buttons-block';
+import { useNavigate } from 'react-router-dom';
 
 function TeacherHome() {
     // @ts-ignore
     const [setTitle] = useOutletContext();
+    const [data, setData] = useState(undefined);
+    const navigate = useNavigate();
+    
+    useEffect(()=>{
+        (()=>{
+            if(!sessionStorage.getItem("token"))
+            {
+                navigate("/");
+                return;
+            }
 
-    useEffect(() => {
-        setTitle('МОЙ КАБИНЕТ');
+            setTitle('МОЙ КАБИНЕТ');
+            let send = {
+                "AllDisciplineTeacher":{
+                    "token":sessionStorage.getItem("token"),
+                    "id_user":sessionStorage.getItem("id_user"),
+                    "id_teacher":sessionStorage.getItem("id_teacher")
+                }
+            }
+            fetch('http://ServerWebsite:3030/view/',{
+                method: "POST",
+                body: JSON.stringify(send)
+            })
+                .then(response => response.json())
+                .then(databack => {
+                    if(databack?.error)
+                    {
+                        alert(databack.error);
+                    }
+                    else
+                    {
+                        setData(databack[0].arraydiscipline);
+                    }
+                });
+        })()
     }, []);
-
-    const disciplins = [
-        {
-            name: "Нейронные сети",
-            img: "./../../../assets/TEMPLATE-discipline1.png"
-        },
-        {
-            name: "Основы Права",
-            img: "./../../../assets/TEMPLATE-discipline2.png"
-        },
-        {
-            name: "Схемотехника",
-            img: "./../../../assets/TEMPLATE-discipline3.png"
-        },
-        {
-            name: "Нейронные сети",
-            img: "./../../../assets/TEMPLATE-discipline1.png"
-        },
-        {
-            name: "Основы Права",
-            img: "./../../../assets/TEMPLATE-discipline2.png"
-        },
-        {
-            name: "Схемотехника",
-            img: "./../../../assets/TEMPLATE-discipline3.png"
-        },
-        {
-            name: "Нейронные сети",
-            img: "./../../../assets/TEMPLATE-discipline1.png"
-        },
-        {
-            name: "Основы Права",
-            img: "./../../../assets/TEMPLATE-discipline2.png"
-        },
-        {
-            name: "Схемотехника",
-            img: "./../../../assets/TEMPLATE-discipline3.png"
-        },
-    ]
     
     const menuitems = [
         {
@@ -91,10 +85,11 @@ function TeacherHome() {
     
     return ( 
         <div className='teacher-home' style={{height: "100%", width: "100%"}}>
+            {data && 
             <TeacherHomeLayout>
-                <TeacherDisciplineShowcase disciplins={disciplins}/>
+                <TeacherDisciplineShowcase disciplins={data}/>
                 <AppHomeButtons menuitems={menuitems}/>
-            </TeacherHomeLayout>
+            </TeacherHomeLayout>}
         </div>
     );
 }
