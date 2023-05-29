@@ -15,13 +15,13 @@ function SiteHeader() {
                 </p>
             </div>
             <SiteNav>
-                <SiteButtonText name="Главная" to="/"/>
+                <SiteButtonText name="Главная" to="/welcome"/>
                 <SiteButtonText name="О нас" to="/"/>
                 <SiteButtonText name="О проекте" to="/"/>
             </SiteNav>
             <SiteSign>
                 <SiteButtonImageText name="Вход" to="/login" img="./../../assets/sign-in.svg"/>
-                { !sessionStorage.getItem("token") &&
+                { !localStorage.getItem("token") &&
                 <SiteButtonImageText name="Регистрация" to="/registration" img="./../../assets/registration.svg"/>}
             </SiteSign>
         </div>

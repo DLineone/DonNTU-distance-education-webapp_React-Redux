@@ -1,6 +1,14 @@
+// @ts-nocheck
 import React, {useState} from 'react';
 import { Outlet } from "react-router-dom";
 import AppLayout from './../../clusters/app-layout/index';
+import { ReactComponent as AppToHomeLogo } from './../../assets/app-to-home-logo.svg';
+import { ReactComponent as AppToDisciplinsLogo } from './../../assets/app-to-disciplins-logo.svg';
+import { ReactComponent as AppToMarksLogo } from './../../assets/app-to-marks-logo.svg';
+import { ReactComponent as AppToTestLogo } from './../../assets/app-to-test-logo.svg';
+import { ReactComponent as AppToNotificationLogo } from './../../assets/app-to-notification-logo.svg';
+import { ReactComponent as AppToGroupFlowsLogo } from './../../assets/app-to-group-flows-logo.svg';
+import { ReactComponent as AppToGroupsLogo } from './../../assets/app-to-groups-logo.svg';
 
 
 
@@ -11,39 +19,39 @@ function TeacherPage() {
     const menuitems = [
         {
             title: 'Личный кабинет',   
-            img: './../../assets/app-to-home-logo.svg', 
+            img: <AppToHomeLogo className='menu-left-img'/> ,
             to: '/teacher/home'
         },
         {
             title: 'Дисциплины',       
-            img: './../../assets/app-to-disciplins-logo.svg', 
+            img: <AppToDisciplinsLogo className='menu-left-img'/>, 
             to: '/teacher/disciplins'
         },
-        {
+        {   
             title: 'Журнал',           
-            img: './../../assets/app-to-marks-logo.svg', 
+            img: <AppToMarksLogo className='menu-left-img'/>,
+            to: '/'
+        },
+        {
+            title: 'Тесты',           
+            img: <AppToTestLogo className='menu-left-img'/>, 
             to: '/'
         },
         {
             title: 'Уведомления',      
-            img: './../../assets/app-to-notification-logo.svg', 
+            img: <AppToNotificationLogo className='menu-left-img'/>, 
             to: '/'
         },
         {
             title: 'Потоки',           
-            img: './../../assets/app-to-group-flows-logo.svg', 
-            to: '/'
+            img: <AppToGroupFlowsLogo className='menu-left-img'/>, 
+            to: '/teacher/flows'
         },
         {
             title: 'Группы',           
-            img: './../../assets/app-to-groups-logo.svg', 
-            to: '/'
-        },
-        {
-            title: 'Файлы',            
-            img: './../../assets/app-to-files-logo.svg', 
-            to: '/'
-        },
+            img: <AppToGroupsLogo className='menu-left-img'/>, 
+            to: '/teacher/groups'
+        }
     ]
 
     document.body.style.overflow = "hidden";

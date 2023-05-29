@@ -5,113 +5,105 @@ import "./style.css";
 import { Link } from 'react-router-dom';
 import ClickAwayListener from 'react-click-away-listener';
 import { useNavigate } from 'react-router-dom';
+import Select  from 'react-select';
+import { IconDots } from '@tabler/icons-react';
+import { useDispatch } from 'react-redux';
+import { deleteDiscipline, deleteDisciplineFlow } from './../../store/teacher-disciplines-slice';
 
 function TeacherDiscipline(props) {
     
     const {discipline} = props;
     const [data, setData] = useState(undefined);
     const [popup, setPopup] = useState(false);
-    const [flowForDiscipline, setFlow] = useState({id_flow: undefined, name_flow: "отсутсвует"});
+    const [selectedFlow, setFlow] = useState({id_flow: null, name_flow: "не выбрана"});
     const navigate = useNavigate();
-
-    useEffect(()=>{
-        setData(discipline);
-    })
+    const dispatch = useDispatch();
 
     const onDelete = useCallback((e)=>{
         e.preventDefault()
         setPopup(false);
-    },[]);
+
+        if(!discipline.edit_disc)
+        {
+            alert("Вы не создатель дисциплины и не можете редактировать её.");
+            return;
+        }
+        
+        if(!selectedFlow.id_flow)
+        {
+            dispatch(deleteDiscipline({id_disc: discipline.id_disc}));
+            return;
+        }
+        else
+        {
+            dispatch(deleteDisciplineFlow({id_disc: discipline.id_disc, id_flow: selectedFlow.id_flow}));
+            setFlow({id_flow: null, name_flow: "не выбрана"});
+        }
+        
+    },[discipline,selectedFlow]);
 
     const onEdit = useCallback((e)=>{
         e.preventDefault()
 
-        let send = {
-            "ButtonClickEditDiscipline":{
-                "token":sessionStorage.getItem("token"),
-                "id_user":sessionStorage.getItem("id_user"),
-                "id_teacher":sessionStorage.getItem("id_teacher"),
-                "id_discipline":discipline.id_list_discipline
-            }
-        };
-        fetch('http://ServerWebsite:3030/view/',{
-            method: "POST",
-            body: JSON.stringify(send)
-        })
-            .then(response => response.json())
-            .then(isok => {
-                if(isok.error)
-                {
-                    alert(isok.error)
-                }
-                else
-                {
-                    localStorage.setItem("resavedata", JSON.stringify(isok));
-                    localStorage.setItem("resavedatadist", discipline.id_list_discipline);
-                    localStorage.setItem("resavedatadistname", discipline.name);
-                    setPopup(false);
-                    navigate("edit");
-                }
-            });
-    },[]);
+
+        if(!discipline.edit_disc)
+        {
+            alert("Вы не создатель дисциплины и не можете редактировать её.");
+            return;
+        }
+
+        if(!selectedFlow.id_flow)
+        {
+            navigate(`${discipline.id_disc}/edit`);
+            setPopup(false);
+            return;
+        }
+
+        if(selectedFlow.id_flow)
+        {
+            navigate(`${discipline.id_disc}/editflow/${selectedFlow.id_flow}`);
+            setPopup(false);
+            return;
+        }
+    },[discipline,selectedFlow]);
 
     const onAdd = useCallback((e)=>{
         e.preventDefault()
         
-        let send = {
-            "ButtonClickaddNewFlowDiscipline":{
-                "token":sessionStorage.getItem("token"),
-                "id_user":sessionStorage.getItem("id_user"),
-                "id_teacher":sessionStorage.getItem("id_teacher"),
-                "id_discipline":discipline.id_list_discipline
-            }
-        };
-        fetch('http://ServerWebsite:3030/view/',{
-            method: "POST",
-            body: JSON.stringify(send)
-        })
-            .then(response => response.json())
-            .then(isok => {
-                if(isok.error)
-                {
-                    alert(isok.error)
-                }
-                else
-                {
-                    localStorage.setItem("resavedata", JSON.stringify(isok));
-                    localStorage.setItem("resavedatadist", discipline.id_list_discipline);
-                    localStorage.setItem("resavedatadistname", discipline.name_disc);
-                    setPopup(false);
-                    navigate("add");
-                }
-            });
-    },[]);
+        if(!discipline.edit_disc)
+        {
+            alert("Вы не создатель дисциплины и не можете добавить поток.");
+            return;
+        }
 
-    function onChange(e)
-    {
-        setFlow({id_flow: e.target.value, name_flow: e.target.options[e.target.selectedIndex].text});
-    }
+        navigate(`${discipline.id_disc}/addflow`);
+        setPopup(false);
+    },[discipline,selectedFlow]);
     
     return (  
         <div className='teacher-discipline'>
-            {data && <>
-            <div className='title-photo'>
-                <img src="./../../../assets/TEMPLATE-discipline-background.png" alt="" />
+            { discipline && <>
+            <div className='title-photo' style={{backgroundImage: `url(${discipline.fon})`}}>
+                
             </div>
             <div className='title-name'>
                 <span>{discipline.name_disc}</span>
             </div>
             <div className='group-flows'>
-                <span>поток: </span> <select onChange={(e)=>onChange(e)}>
-                    <option >отсутствует</option>
-                    {discipline?.array_flows?.map((group_flow) =>
-                        <option value={group_flow.id_flow}>{group_flow.name_flow}</option>
-                    )}
-                </select>
+                <span>поток: </span>
+                <Select 
+                    styles={styles} 
+                    value={selectedFlow}
+                    defaultValue={selectedFlow} 
+                    options={discipline?.array_flow ? [{id_flow: undefined, name_flow: "не выбрана"}, ...discipline.array_flow] : [{id_flow: undefined, name_flow: "не выбрана"}]} 
+                    getOptionValue={option => option.id_flow}
+                    getOptionLabel={option => option.name_flow}
+                    onChange={val => {setFlow(val); console.log(val)}}
+                />
             </div>
             <div className='sub-menu'>
                     <div className='sub-sub-menu' onClick={() => setPopup(true)}>
-                        <object data="./../../assets/menu-triple-dot.svg" type=""></object>
+                        <IconDots color='#7B4255' size={35} stroke={3}/>
                     </div>
                     <div className='sub-menu-button'>
                         <Link to="">Перейти</Link>
@@ -119,15 +111,32 @@ function TeacherDiscipline(props) {
                     {popup && (
                         <ClickAwayListener onClickAway={() => setPopup(false)}>
                                 <div className={'popup-menu'}>
-                                    <Link onClick={(e)=>onDelete(e)} to="">Удалить</Link>
-                                    <Link onClick={(e)=>onEdit(e)} to="">Редактировать</Link>
+                                    <Link onClick={(e)=>onDelete(e)} to="">Удалить {selectedFlow.id_flow ? "поток" : "дисциплину"}</Link>
+                                    <Link onClick={(e)=>onEdit(e)} to="">Редактировать {selectedFlow.id_flow ? "поток" : "дисциплину"}</Link>
                                     <Link onClick={(e)=>onAdd(e)} to="">Добавить поток</Link>
                                 </div>
                         </ClickAwayListener>
                     )}
-            </div></>}
+            </div></>
+            }
         </div>
     );
 }
 
 export default React.memo(TeacherDiscipline);
+
+
+
+const styles = {
+    menu: ({ width, ...css }) => ({
+        ...css,
+        width: "max-content",
+        minWidth: "100%",
+        fontSize: '20px'
+    }),
+    control: css => ({
+        ...css,
+        width: '83%',
+        fontSize: '20px'
+    }),            
+};

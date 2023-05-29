@@ -41,6 +41,14 @@ module.exports = {
           {loader: 'css-loader', options: {url: true, import: true/*, modules: true*/}},
         ],
       },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      },
+      {
+        test: /\.(jpg|png|gif)$/,
+        type: 'asset/resource',
+      },
     ],
   },
   plugins: [

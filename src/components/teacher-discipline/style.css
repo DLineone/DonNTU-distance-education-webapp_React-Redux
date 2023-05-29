@@ -26,7 +26,14 @@ html, body
     color: black;
 }
 
-
+.teacher-discipline .title-photo
+{
+    height: 215px;
+    width: 100%;
+    background-size: cover !important;
+    background-color: #1d1c63;
+    border-radius: 15px;
+}
 
 .teacher-discipline .sub-menu
 {
@@ -53,11 +60,6 @@ html, body
     border-radius: 10px;
 }
 
-.teacher-discipline .group-flows>span
-{
-    margin-right: 40px;
-}
-
 .teacher-discipline .title-name
 {
     font-size: 32px;
@@ -74,11 +76,10 @@ html, body
 .teacher-discipline .sub-sub-menu
 {
     cursor: pointer;
-}
-
-.teacher-discipline .sub-sub-menu>object
-{
-    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .teacher-discipline .sub-menu-button>a:hover
@@ -117,12 +118,16 @@ html, body
     color: black;
 }
 
-.teacher-discipline>.group-flows>select
-{
-    width: 40%;
-}
-
 .teacher-discipline>.group-flows
 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
+}
+
+.teacher-discipline>.group-flows>*
+{
+    flex-grow: 1;
 }

@@ -1,0 +1,16 @@
+.filter
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+}
+
+.filter-name
+{
+    margin-right: 10px;
+    font-size: 28px;
+    color: #736F76;
+    font-weight: 400;
+}

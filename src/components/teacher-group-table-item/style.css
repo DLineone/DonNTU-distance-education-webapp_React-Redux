@@ -1,0 +1,41 @@
+.item>.content
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0px;
+}
+
+.item>.content>*
+{
+    flex: 1 1 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.group-name
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.item>.content .unfold-button, .item>.content .group-name
+{
+    flex: 0.5 1 0px;
+}
+
+.item>.sub-content
+{
+    margin-left: max(5%, 20px);
+}
+
+.item:nth-child(1)
+{
+    margin-top: 14px;
+}

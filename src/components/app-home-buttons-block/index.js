@@ -7,7 +7,7 @@ function AppHomeButtons(props) {
         <div className='app-home-buttons'>
             {props.menuitems.map(item => 
                 <Link className='menu-item' to={item.to}>
-                    <img className='item-img' src={item.img} alt="" />
+                    {item.img}
                     <span className='item-title'>{item.title}</span>
                 </Link>
             )}

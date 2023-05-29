@@ -1,0 +1,76 @@
+.teacher-groups-layout
+{
+    width: min(1558px, 100% - 3rem);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.teacher-groups-layout-menu
+{
+    
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: min(185px, 20%);
+}
+
+.teacher-groups-layout-menu .menu-filters
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.teacher-groups-layout-menu .menu-query
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.teacher-groups-layout-menu .menu-query>.search
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: max-content;
+    color: #787373;
+    font-size: 20px;
+}
+
+.teacher-groups-layout-menu .menu-query>.search>input
+{
+    color: #787373;
+    font-size: 20px;
+}
+
+
+.teacher-groups-layout-menu .menu-query>object
+{
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.teacher-groups-layout-menu hr
+{
+    width: 100%;
+}
+
+.teacher-groups-layout .content
+{
+    width: 100%;
+    height: 60%;
+    margin: 2% 0px;
+    overflow-y: hidden;
+}

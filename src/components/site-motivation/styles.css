@@ -2,6 +2,8 @@
 {
     min-height: 877px;
     background-image: url("./../../assets/motivationbackground.png");
+    background-size: cover;
+    resize: vertical;
     width: 100%;
     display: flex;
     flex-direction: column;

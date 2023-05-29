@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./style.css";
 import { Link } from 'react-router-dom';
+import { IconSearch } from '@tabler/icons-react';
 
 function TeacherDisciplinsLayout(props) {
     return (  
@@ -10,16 +11,13 @@ function TeacherDisciplinsLayout(props) {
                     <Link to="create">Создать дисциплину</Link>
                 </div>
                 <div className='sort-menu'>
-                    <div className='sort-block'>
-                        <select name="sort">
-                            <option value="none">Без сортировки</option>
-                            <option value="name">По названию</option>
-                            <option value="group-flow">По потокам</option>
-                        </select>
-                    </div>
                     <div className='search-discipline'>
-                        <input type="text" placeholder='Поиск Дисциплины' />
-                        <object data="./../../assets/search-icon.svg" type=""></object>
+                        <div className='search-input'>
+                            <input type="text" placeholder='Поиск Дисциплины' value={props.query} onChange={(e)=>{props.setQuery(e.target.value)}}/>    
+                        </div>
+                        <div className='search-button'>
+                            <IconSearch color='white' size={30} stroke={2.5}/>
+                        </div>
                     </div>
                 </div>
             </div>

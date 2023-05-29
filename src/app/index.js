@@ -1,6 +1,6 @@
 import React, { Children } from "react";
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route} from "react-router-dom";
-import Welcome from "./welcome";
+import Welcome from "./site/welcome";
 import Registration from './registration';
 import Login from './login';
 import TeacherPage from './teacher-page';
@@ -11,13 +11,23 @@ import ModalLayout from './../clusters/modal-layout/index';
 import TeacherCreateDiscipline from './../components/teacher-create-discipline/index';
 import TeacherEditDiscipline from './../components/teacher-edit-discipline/index';
 import TeacherAddFlow from './../components/teacher-add-flow/index';
+import Site from "./site";
+import TeacherGroups from "./teacher-page/teacher-groups";
+import TeacherEditFlowDisc from "../components/teacher-edit-flow-disc";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Welcome/>,
-        errorElement: <div>not found</div>
+        element: <Site/>,
+        errorElement: <div>not found</div>,
+        children:
+        [
+            {
+                path: "/welcome",
+                element: <Welcome/>
+            }
+        ]
     },
     {
         path: "/registration",
@@ -54,14 +64,26 @@ const router = createBrowserRouter([
                         element: <ModalLayout><TeacherCreateDiscipline/></ModalLayout>
                     },
                     {
-                        path: "edit",
+                        path: ":distId/edit",
                         element: <ModalLayout><TeacherEditDiscipline/></ModalLayout>
                     },
                     {
-                        path: "add",
+                        path: ":distId/editflow/:flowId",
+                        element: <ModalLayout><TeacherEditFlowDisc/></ModalLayout>
+                    },
+                    {
+                        path: ":distId/addflow",
                         element: <ModalLayout><TeacherAddFlow/></ModalLayout>
                     },
                 ]
+            },
+            {
+                path: "groups",
+                element: <TeacherGroups/>
+            },
+            {
+                path: "flows",
+                element: <div></div>
             },
         ],
     }

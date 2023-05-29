@@ -1,13 +1,26 @@
-import React,{useState} from 'react';
+// @ts-nocheck
+import React,{useEffect, useState} from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
 import ClickAwayListener from 'react-click-away-listener';
 import { useNavigate } from 'react-router-dom';
+import { IconBell } from '@tabler/icons-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTeacherProfile } from '../../store/teacher-profile-slice';
+import AppLogo from "./../../assets/app-logo.png";
+import { Skeleton } from '@mui/material';
 
 function AppLayout(props) {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [popup, setPopup] = useState(false);
+    const profile = useSelector(state => state.tc_profile.profile);
+
+    useEffect(() => {
+        
+        dispatch(fetchTeacherProfile());
+    },[])
 
     function onClickProfile()
     {
@@ -16,16 +29,24 @@ function AppLayout(props) {
 
     function onClickExit()
     {
-        let send = {
-            "ButtonExit":{
-                "token":sessionStorage.getItem("token"),
-                "id_user":sessionStorage.getItem("id_user")}
-        }
-        fetch('http://ServerWebsite:3030/view/',{
+        fetch('http://dist.donntu.ru:3030/exit',{
             method: "POST",
-            body: JSON.stringify(send)
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_user_reg: localStorage.getItem("id_user_reg"),
+                token: localStorage.getItem("token"), 
+            })
+        })
+        .then(response => response.json())
+        .then(databack => {
+            if(databack?.error)
+            {
+                alert(databack.error);
+            }
         });
-        sessionStorage.clear();
+        localStorage.clear();
         navigate("/");
         setPopup(false);
     }
@@ -35,7 +56,7 @@ function AppLayout(props) {
             <div className='app-header'>
                 <div className='header-logo'>
                     <Link to='/' className='header-logo-image'>
-                        <img  src="../../assets/app-logo.png"/>
+                        <img  src={AppLogo}/>
                     </Link>
                 </div>
                 <div className='header-title'>
@@ -43,16 +64,18 @@ function AppLayout(props) {
                 </div>
                 <div className='header-menu'>
                     <div className='button-img'>
-                        <object className='button-img' data="./../../assets/app-notification.svg" type="image/svg+xml"/>
+                        <IconBell size={50} stroke={1.5}/>
                     </div>
-                    <div className='button-img' onClick={() => setPopup(true)}>
-                        <object  data="./../../assets/user-photo.svg" type="image/svg+xml"/>
-                    </div>
+                    {profile?.photo &&
+                    <div className='user-photo button-img' style={{backgroundImage: `url(${profile?.photo})`}} onClick={() => setPopup(true)}/>
+                    ||
+                    <Skeleton className='user-photo button-img' animation="wave" variant="circular" sx={{ bgcolor: '#582f3d' }}>
+                    </Skeleton>}
                     
                     {popup && (
                         <ClickAwayListener onClickAway={() => setPopup(false)}>
                             <div className={'popup-menu'}>
-                                <Link onClick={onClickProfile} to="/teacher/profile">Профиль</Link>
+                                <Link onClick={onClickProfile} to="../profile" relative='path'>Профиль</Link>
                                 <Link onClick={onClickExit} to="/">Выйти</Link>
                             </div>
                         </ClickAwayListener>
@@ -63,7 +86,7 @@ function AppLayout(props) {
                 <div className='left-menu'>{props?.menuitems?.map(item =>
                     <div className='menu-left-item'>
                         <Link to={item.to}>
-                            <object className='menu-left-img' data={item.img} type="image/svg+xml"/>
+                            {item.img}
                         </Link>
                     </div>
                 )}</div>

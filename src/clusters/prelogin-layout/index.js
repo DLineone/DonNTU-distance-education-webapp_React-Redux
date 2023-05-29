@@ -9,6 +9,4 @@ function PreloginLayout(props) {
     );
 }
 
-// {`- Кто же ты, путник?`}
-//             {<br>`- Наверное, ...`}
 export default PreloginLayout;

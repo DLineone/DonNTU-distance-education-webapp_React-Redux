@@ -76,10 +76,7 @@
     column-gap: 30px;
 }
 
-.teacher-add-flow>.input-element>.name,
-.teacher-add-flow>.input-element>input,
-.teacher-add-flow>.input-element>select,
-.teacher-add-flow>.input-element>button
+.teacher-add-flow>.input-element>*
 {
     width: 40%;
 }

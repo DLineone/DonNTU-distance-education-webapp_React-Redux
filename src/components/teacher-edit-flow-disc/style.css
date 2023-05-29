@@ -1,0 +1,118 @@
+.teacher-edit-flow-disc
+{
+    height: 70%;
+    width: min(890px, 100% - 3rem);
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    padding: 10px;
+
+    font-family: "Inria Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: black;
+}
+
+.teacher-edit-flow-disc>*
+{
+    width: 100%;
+}
+
+.teacher-edit-flow-disc>.title
+{
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.teacher-edit-flow-disc>.disclaimer
+{
+    color: #382C42;
+}
+
+.teacher-edit-flow-disc>.input-element>.name
+{
+    color: #736F76;
+}
+
+.teacher-edit-flow-disc button
+{
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 24px;
+    background-color: #7B4255;
+    transition: 200ms;
+}
+
+.teacher-edit-flow-disc button:hover
+{
+    background-color: #522b38;
+    transition: 200ms;
+}
+
+.teacher-edit-flow-disc button:active
+{
+    color: black;
+    background-color: white;
+    transition: none;
+}
+
+
+.teacher-edit-flow-disc>.input-element
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 30px;
+}
+
+.teacher-edit-flow-disc>.input-element>*
+{
+    width: 40%;
+}
+
+.teacher-edit-flow-disc>.input-element>select,
+.teacher-edit-flow-disc>.input-element>input
+{
+    width: 50%;
+    font-size: 28px;
+}
+
+.teacher-edit-flow-disc>.menu
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 10px;
+}
+
+.teacher-edit-flow-disc .exit
+{
+    background-color: #E7E7E7;
+    border: 2px solid black;
+    color: black;
+    transition: 200ms;
+}
+
+.teacher-edit-flow-disc .exit:hover
+{
+    background-color: #bdbdbd;
+    transition: 200ms;
+}
+
+.teacher-edit-flow-disc .exit:active
+{
+    background-color: white;
+    transition: none;
+}

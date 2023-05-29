@@ -3,7 +3,7 @@ import "./style.css";
 
 function PreloginInput(props) {
     return ( 
-        <div className='prelogin-input'>
+        <div className={'prelogin-input' + ' ' + props.animation}>
             <div className='prelogin-text'>
                 {props.text}
             </div>

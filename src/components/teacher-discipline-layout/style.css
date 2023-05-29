@@ -7,7 +7,7 @@
 
 .teacher-disciplins-layout-body
 {
-    height: 77%;
+    height: 85%;
     max-width: 100%;
     display: flex;
     flex-direction: row;
@@ -22,10 +22,14 @@
     padding-right: 2%;
     padding-bottom: 2%;
 
-
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     scrollbar-gutter: stable;
+}
+
+.teacher-disciplins-layout-body:hover
+{
+   overflow-y: scroll;
 }
 
 .teacher-disciplins-layout-menu
@@ -88,9 +92,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     height: 100%;
-    width: 45%;
+    width: 60%;
 }
 
 .teacher-disciplins-layout .sort-block
@@ -98,13 +102,27 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     height: 100%;
     width: 45%;
 }
 
-.teacher-disciplins-layout .search-discipline>object
+.teacher-disciplins-layout .search-discipline input
 {
-    pointer-events: none;
-    cursor: pointer;
+    font-size: 20px;
+    height: 30px;
+    font-weight: 400;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.teacher-disciplins-layout .search-button
+{
+    height: 35px;
+    width: 35px;
+    background-color: #B5B5C8;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

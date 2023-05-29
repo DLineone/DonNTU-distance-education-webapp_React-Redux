@@ -1,5 +1,9 @@
+// @ts-nocheck
 import React, {useState} from 'react';
 import "./style.css";
+import { Skeleton } from '@mui/material';
+import ImgLeft from "./../../assets/showcase-disciplines-butotn-left.png";
+import ImgRight from "./../../assets/showcase-disciplines-button-right.png";
 
 function TeacherDisciplineShowcase(props) {
 
@@ -15,20 +19,37 @@ function TeacherDisciplineShowcase(props) {
         if(displace > 0)
         setDisplace(displace - 1);
     }
+
     return ( 
         <div className='teacher-discipline-showcase'>
-            <div className='button-left'>
-                <img onClick={changedispleft} src="./../../assets/showcase-disciplines-butotn-left.png" alt="" />
+            {props?.disciplins?.slice && <><div className='button-left'>
+                <img onClick={changedispleft} src={ImgLeft} alt="" />
             </div>
                 {props.disciplins.slice(displace, displace + 5).map(item => 
-                    <div className='showcase-item'>
-                        <img src="./../../assets/TEMPLATE-discipline1.png" alt="" />
-                        <span>{item.name_disc}</span>
+                    <div style={{backgroundImage: `url(${item.fon})`}} className='showcase-item' >
+                        
+                        <span >{item.name_disc}</span>
                     </div>
                 )}
             <div className='button-right'>
-                <img onClick={changedispright} src="./../../assets/showcase-disciplines-button-right.png" alt="" />
+                <img onClick={changedispright} src={ImgRight} alt="" />
+            </div></>
+            ||
+            <><div className='button-left'>
+                <img onClick={changedispleft} src="./../../assets/showcase-disciplines-butotn-left.png" alt="" />
             </div>
+                {[1,2,3,4,5].slice(displace, displace + 5).map(item => 
+                    <Skeleton className='showcase-skeleton' animation="wave" variant="rounded">
+
+                    </Skeleton>
+                )}
+            <div className='button-right'>
+                <img onClick={changedispright} src="./../../assets/showcase-disciplines-button-right.png" alt="" />
+            </div></> 
+            ||
+            <>
+                <div className='soft-error'>НЕТ ДОСТУПНЫХ ДИСЦИПЛИН</div>
+            </>}
         </div>
     );
 }

@@ -1,0 +1,57 @@
+.table-body
+{
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.teacher-groups-table
+{
+    height: 100%;
+    width: 100%;
+}
+
+.table-header
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 70px !important;
+}
+.table-header *
+{
+    height: 70px;
+}
+
+.table-content
+{
+    width: 100%;
+    overflow-y: auto;
+}
+
+.table-header
+{
+    
+    border-radius: 15px 15px 0px 0px;
+    background: #B5B5C8;
+}
+
+
+.table-header *
+{
+    flex: 1 1 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

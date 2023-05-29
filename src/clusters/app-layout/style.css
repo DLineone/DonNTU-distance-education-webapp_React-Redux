@@ -44,6 +44,11 @@
     justify-content: center;
 }
 
+.app-layout>.app-header>.header-logo>.header-logo-image>img
+{
+    background-image: url("./../../assets/app-logo.png");
+}
+
 .app-layout>.app-header>.header-title
 {
     height: 100%;
@@ -110,6 +115,7 @@
 {
     height: 100%;
     width: 100%;
+
 }
 
 .app-layout .button-img
@@ -136,11 +142,36 @@
 
     border-radius: 10px;
     padding: 10px;
-
-    top: 55px;
+    
+    right: 20px;
+    top: 58px;
 }
 
-.app-layout .header-menu>.popup-menu>a
+.app-layout .header-menu>.popup-menu a
 {
     color: black;
+}
+
+.app-layout .header-menu .user-photo
+{
+    background-size: cover;
+    height: 90%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+}
+
+.user-photo-popup
+{
+    height: 50px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-size: cover;
+}
+
+.popup-div
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }

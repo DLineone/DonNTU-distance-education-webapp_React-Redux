@@ -1,95 +1,84 @@
+// @ts-nocheck
 import React,{ useEffect, useState} from 'react';
 import { useOutletContext } from "react-router-dom";
 import TeacherHomeLayout from './../../../clusters/teacher-home-layout';
 import TeacherDisciplineShowcase from './../../../components/teacher-discipline-showcase/index';
 import AppHomeButtons from './../../../components/app-home-buttons-block';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTeacherDisciplines } from '../../../store/teacher-disciplines-slice';
+
+import { ReactComponent as AppToHomeButton } from './../../../assets/app-home-to-home-button.svg';
+import { ReactComponent as AppToDisciplinesButton } from './../../../assets/app-home-to-disciplines-button.svg';
+import { ReactComponent as AppToMarksButton } from './../../../assets/app-home-to-marks-button.svg';
+import { ReactComponent as AppToTestsButton } from './../../../assets/app-home-to-tests-button.svg';
+import { ReactComponent as AppToNotificationButton } from './../../../assets/app-home-to-notification-button.svg';
+import { ReactComponent as AppToGroupFlowsButton } from './../../../assets/app-home-to-group-flows-button.svg';
+import { ReactComponent as AppToGroupsButton } from './../../../assets/app-home-to-groups-button.svg';
 
 function TeacherHome() {
-    // @ts-ignore
     const [setTitle] = useOutletContext();
-    const [data, setData] = useState(undefined);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const disciplinesList = useSelector(state => state.tc_disciplines.disciplinesList);
     
     useEffect(()=>{
-        (()=>{
-            if(!sessionStorage.getItem("token"))
-            {
-                navigate("/");
-                return;
-            }
+        if(!localStorage.getItem("token"))
+        {
+            navigate("/");
+            return;
+        }
 
-            setTitle('МОЙ КАБИНЕТ');
-            let send = {
-                "AllDisciplineTeacher":{
-                    "token":sessionStorage.getItem("token"),
-                    "id_user":sessionStorage.getItem("id_user"),
-                    "id_teacher":sessionStorage.getItem("id_teacher")
-                }
-            }
-            fetch('http://ServerWebsite:3030/view/',{
-                method: "POST",
-                body: JSON.stringify(send)
-            })
-                .then(response => response.json())
-                .then(databack => {
-                    if(databack?.error)
-                    {
-                        alert(databack.error);
-                    }
-                    else
-                    {
-                        setData(databack[0].arraydiscipline);
-                    }
-                });
-        })()
+        setTitle('МОЙ КАБИНЕТ');
+
+        dispatch(fetchTeacherDisciplines());
     }, []);
     
     const menuitems = [
         {
             title: "Личный кабинет",
-            img: "./../../../assets/app-home-to-home-button.svg",
+            img: <AppToHomeButton className='item-img'/>,
             to: "/teacher/home"
         },
         {
             title: "Дисциплины",
-            img: "./../../../assets/app-home-to-disciplines-button.svg",
+            img: <AppToDisciplinesButton className='item-img'/>,
             to: "/teacher/disciplins"
         },
         {
             title: "Журнал",
-            img: "./../../../assets/app-home-to-marks-button.svg",
+            img: <AppToMarksButton className='item-img'/>,
+            to: "/"
+        },
+        {
+            title: "Тесты",
+            img: <AppToTestsButton className='item-img'/>,
             to: "/"
         },
         {
             title: "Уведомления",
-            img: "./../../../assets/app-home-to-notification-button.svg",
+            img: <AppToNotificationButton className='item-img'/>,
             to: "/"
         },
         {
             title: "Потоки",
-            img: "./../../../assets/app-home-to-group-flows-button.svg",
-            to: "/"
+            img: <AppToGroupFlowsButton className='item-img'/>,
+            to: "/flows"
         },
         {
             title: "Группы",
-            img: "./../../../assets/app-home-to-groups-button.svg",
-            to: "/"
-        },
-        {
-            title: "Файлы",
-            img: "./../../../assets/app-home-to-files-button.svg",
-            to: "/"
-        },
+            img: <AppToGroupsButton className='item-img'/>,
+            to: "/groups"
+        }
     ]
     
     return ( 
         <div className='teacher-home' style={{height: "100%", width: "100%"}}>
-            {data && 
+            
             <TeacherHomeLayout>
-                <TeacherDisciplineShowcase disciplins={data}/>
+                <TeacherDisciplineShowcase disciplins={disciplinesList}/>
                 <AppHomeButtons menuitems={menuitems}/>
-            </TeacherHomeLayout>}
+            </TeacherHomeLayout>
         </div>
     );
 }
