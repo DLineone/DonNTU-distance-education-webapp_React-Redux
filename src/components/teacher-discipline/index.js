@@ -98,7 +98,7 @@ function TeacherDiscipline(props) {
                     options={discipline?.array_flow ? [{id_flow: undefined, name_flow: "не выбрана"}, ...discipline.array_flow] : [{id_flow: undefined, name_flow: "не выбрана"}]} 
                     getOptionValue={option => option.id_flow}
                     getOptionLabel={option => option.name_flow}
-                    onChange={val => {setFlow(val); console.log(val)}}
+                    onChange={val => setFlow(val)}
                 />
             </div>
             <div className='sub-menu'>

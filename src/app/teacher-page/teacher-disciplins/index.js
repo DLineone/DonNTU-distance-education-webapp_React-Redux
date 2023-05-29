@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React,{ useEffect, useState} from 'react';
 import TeacherDisciplinsLayout from './../../../components/teacher-discipline-layout';
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useSearchParams } from "react-router-dom";
 import TeacherDiscipline from './../../../components/teacher-discipline';
 import { Outlet } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +15,8 @@ function TeacherDisciplins() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const disciplinesList = useSelector(state => state.tc_disciplines.disciplinesList);
-    const [query, setQuery] = useState("");
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [query, setQuery] = useState(searchParams.get("query") || "");
     
     useEffect(() => {
         if(!localStorage.getItem("token"))
@@ -23,22 +24,12 @@ function TeacherDisciplins() {
             navigate("/");
             return;
         }
-        setTitle('МОИ ДИСЦИПЛИНЫ');
-
-        let searchParams = new URLSearchParams(window.location.search);
-        if(searchParams.has('query'))
-        {
-            setQuery(searchParams.get('query'));
-        }
-        
-        
+        setTitle('МОИ ДИСЦИПЛИНЫ');        
     },[]);
 
     useEffect(() => {
         dispatch(fetchTeacherDisciplines({name: query}));
-        let searchParams = new URLSearchParams(window.location.search);
-        searchParams.set("query", query);
-        window.history.pushState(null, '', '?' + searchParams.toString());
+        setSearchParams({query: query});
     }, [query]);
 
     

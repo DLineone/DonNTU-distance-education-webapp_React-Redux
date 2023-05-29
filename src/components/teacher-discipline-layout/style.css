@@ -119,10 +119,10 @@
 {
     height: 35px;
     width: 35px;
-    background-color: #B5B5C8;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    cursor: pointer; 
 }
