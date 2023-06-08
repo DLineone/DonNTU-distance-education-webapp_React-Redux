@@ -1,0 +1,195 @@
+.teachaer-presence-log-table
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    font-weight: 400;
+    font-size: 28px;
+    font-family: "Inria Sans", sans-serif;
+}
+
+.teachaer-presence-log-table input
+{
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    width: 100px;
+}
+
+.teachaer-presence-log-element.top-half-element
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.edit-button
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-button:hover
+{
+    cursor: pointer;
+}
+
+.teachaer-presence-log-column
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+
+    min-width: 35px;
+}
+
+.teachaer-presence-log-element
+{
+    font-weight: 400;
+    font-size: 28px;
+    font-family: "Inria Sans", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d3d3d8;
+
+    background-color: white;
+
+    height: 45px;
+}
+
+.teachaer-presence-log-element:nth-child(even)
+{
+    background-color: #F1F1F6;
+}
+
+.teachaer-presence-log-element.title
+{
+    height: 135px;
+}
+
+.teachaer-presence-log-element.vertical
+{
+    height: 120px;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-size: 18px;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.teachaer-presence-log-element.mark
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teachaer-presence-log-element.name
+{
+    align-items: flex-start;
+}
+
+/* .teachaer-presence-log
+{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: white;
+}
+
+.teachaer-presence-log-column
+{
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+
+.teachaer-presence-log-element
+{
+    font-weight: 400;
+    font-size: 28px;
+    font-family: "Inria Sans", sans-serif;
+
+    border: 1px solid #d3d3d8;
+
+    height: 45px;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.teachaer-presence-log-element.mark
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teachaer-presence-log-element:nth-child(even)
+{
+    background-color: #F1F1F6;
+}
+
+.teachaer-presence-log-element:nth-child(odd)
+{
+    background-color: white;
+}
+
+.teachaer-presence-log-element.title
+{
+    justify-content: space-around;
+    height: 135px;
+}
+
+.teachaer-presence-log-element.split
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    height: 135px;
+    width: 50px;
+}
+
+.teachaer-presence-log-element.vertical
+{
+    writing-mode: vertical-rl;
+    height: 135px;
+}
+
+.teachaer-presence-log-sub-element.vertical
+{
+    border-top: 2px solid #d3d3d8;
+    font-weight: 400;
+    width: 100%;
+    height: 100px;
+    font-size: 18px;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+}
+
+.teachaer-presence-log-sub-element
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+}
+ */

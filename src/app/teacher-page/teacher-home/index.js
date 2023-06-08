@@ -48,7 +48,7 @@ function TeacherHome() {
         {
             title: "Журнал",
             img: <AppToMarksButton className='item-img'/>,
-            to: "/"
+            to: "/teacher/logs"
         },
         {
             title: "Тесты",

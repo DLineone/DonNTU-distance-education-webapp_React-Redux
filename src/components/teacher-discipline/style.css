@@ -30,7 +30,9 @@ html, body
 {
     height: 215px;
     width: 100%;
-    background-size: cover !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
     background-color: #1d1c63;
     border-radius: 15px;
 }
@@ -57,6 +59,18 @@ html, body
     height: max-content;
     padding: 10px;
     background-color: #7B4255;
+    border-radius: 10px;
+}
+
+.teacher-discipline .sub-menu-button-disabled>a
+{
+    text-decoration: none;
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    background-color: rgba(109, 79, 89, 0.6);
+    pointer-events: none;
+    cursor: default;
     border-radius: 10px;
 }
 

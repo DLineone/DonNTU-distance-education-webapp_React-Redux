@@ -75,7 +75,12 @@ function AppLayout(props) {
                     {popup && (
                         <ClickAwayListener onClickAway={() => setPopup(false)}>
                             <div className={'popup-menu'}>
-                                <Link onClick={onClickProfile} to="../profile" relative='path'>Профиль</Link>
+                                <Link 
+                                    onClick={onClickProfile} 
+                                    to={`/${profile.role == "преподаватель" ? "teacher" : profile.role == "студент" ? "student" : ""}/profile`}
+                                >
+                                    Профиль
+                                </Link>
                                 <Link onClick={onClickExit} to="/">Выйти</Link>
                             </div>
                         </ClickAwayListener>

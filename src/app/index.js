@@ -14,6 +14,8 @@ import TeacherAddFlow from './../components/teacher-add-flow/index';
 import Site from "./site";
 import TeacherGroups from "./teacher-page/teacher-groups";
 import TeacherEditFlowDisc from "../components/teacher-edit-flow-disc";
+import TeacherLogs from "./teacher-page/teacher-logs";
+import TeacherLog from "./teacher-page/teacher-log";
 
 
 const router = createBrowserRouter([
@@ -83,8 +85,17 @@ const router = createBrowserRouter([
             },
             {
                 path: "flows",
-                element: <div></div>
+                element: <div></div>,
+                children: []
             },
+            {
+                path: "logs",
+                element: <TeacherLogs/>
+            },
+            {
+                path: "log/:distId",
+                element: <TeacherLog/>
+            }
         ],
     }
 ]);

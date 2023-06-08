@@ -30,7 +30,7 @@ function TeacherPage() {
         {   
             title: 'Журнал',           
             img: <AppToMarksLogo className='menu-left-img'/>,
-            to: '/'
+            to: '/teacher/logs'
         },
         {
             title: 'Тесты',           

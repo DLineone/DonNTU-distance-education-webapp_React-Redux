@@ -105,7 +105,7 @@ function TeacherDiscipline(props) {
                     <div className='sub-sub-menu' onClick={() => setPopup(true)}>
                         <IconDots color='#7B4255' size={35} stroke={3}/>
                     </div>
-                    <div className='sub-menu-button'>
+                    <div className={selectedFlow.id_flow ? 'sub-menu-button' : 'sub-menu-button-disabled'}>
                         <Link to="">Перейти</Link>
                     </div>
                     {popup && (

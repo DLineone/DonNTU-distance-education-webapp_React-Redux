@@ -4,7 +4,7 @@ import "./style.css";
 
 function TeacherGroupTableItem(props) {
     return (  
-        <div className='item'>
+        <div className='teacher-group-table-item'>
             <div className="content">
                 <div className="unfold-button">
                     <IconArrowBadgeDown size={50} stroke={1}/>

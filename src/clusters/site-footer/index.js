@@ -1,6 +1,13 @@
+// @ts-nocheck
 import React from 'react';
 import "./style.css";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { ReactComponent as MailMini } from "./../../assets/mail-mini.svg";
+import { ReactComponent as PhoneMini } from "./../../assets/phone-mini.svg";
+import { ReactComponent as FooterVk } from "./../../assets/footer-vk.svg";
+import { ReactComponent as FooterOk } from "./../../assets/footer-ok.svg";
+import { ReactComponent as FooterTw } from "./../../assets/footer-tw.svg";
+import { ReactComponent as FooterFb } from "./../../assets/footer-fb.svg";
 
 function SiteFooter() {
     return ( 
@@ -21,7 +28,7 @@ function SiteFooter() {
                             <span className='link'>donntu.info@mail.ru</span>
                         </CopyToClipboard>
                         {`ㅤ`} 
-                        <object data="./../../assets/mail-mini.svg" type="image/svg+xml"/>
+                        <MailMini/>
                         <span className="popup">copied!</span>
                     </div>
                     <div style={{position: "relative"}} className=''>
@@ -30,7 +37,7 @@ function SiteFooter() {
                             <span className='link'>(+7) 949 301-07-09</span> 
                         </CopyToClipboard>
                         {`ㅤ`} 
-                        <object data="./../../assets/phone-mini.svg" type="image/svg+xml"/>
+                        <PhoneMini/>
                         <span className="popup">copied!</span>
                     </div>
                 </div>
@@ -40,10 +47,10 @@ function SiteFooter() {
                     Мессенджеры
                 </div>
                 <div className="footer-content">
-                    <object className='footer-img' data="./../../assets/footer-vk.svg" type="image/svg+xml"/>
-                    <object className='footer-img' data="./../../assets/footer-ok.svg" type="image/svg+xml"/>
-                    <object className='footer-img' data="./../../assets/footer-tw.svg" type="image/svg+xml"/>
-                    <object className='footer-img' data="./../../assets/footer-fb.svg" type="image/svg+xml"/>
+                    <FooterVk className='footer-img'/>
+                    <FooterOk className='footer-img'/>
+                    <FooterTw className='footer-img'/>
+                    <FooterFb className='footer-img'/>
                 </div>
             </div>
             <div className="site-links site-footer-elem">

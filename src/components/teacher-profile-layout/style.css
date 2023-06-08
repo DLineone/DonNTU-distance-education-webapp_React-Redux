@@ -23,7 +23,14 @@
 .profile-layout>*
 {
     margin-top: 20px;
+    
 }
+
+.profile-layout *
+{
+    box-sizing: content-box;    
+}
+
 
 .profile-layout>.profile-header
 {
@@ -110,11 +117,20 @@
 
 .profile-layout .profile-body
 {
+    flex-basis: 100%;
     width: 70%;
-    height: fit-content;
+    height: max-content;
+    padding: 5px;
     margin-top: 40px;
     background-color: white;
     border-radius: 20px;
+    overflow: hidden;
+    scrollbar-gutter: stable;
+}
+
+.profile-layout .profile-body:hover
+{
+    overflow: auto;
 }
 
 .profile-layout .profile-body>.body-title
@@ -126,6 +142,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start ;
+    margin-bottom: 25px;
     
 }
 
@@ -155,7 +172,6 @@
     height: max-content;
     row-gap: 20px;
     min-height: 750px;
-    padding-bottom: 100px;
 }
 
 .profile-layout .body-block

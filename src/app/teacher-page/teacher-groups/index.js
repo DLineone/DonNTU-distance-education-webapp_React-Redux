@@ -9,16 +9,13 @@ function TeacherGroups() {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        (()=>{
-            if(!localStorage.getItem("token"))
-            {
-                navigate("/");
-                return;
-            }
+        if(!localStorage.getItem("token"))
+        {
+            navigate("/");
+            return;
+        }
 
-            setTitle('ГРУППЫ');
-            
-        })()
+        setTitle('ГРУППЫ');
     }, []);
 
     const groups = [

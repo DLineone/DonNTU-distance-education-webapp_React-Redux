@@ -1,4 +1,4 @@
-.item>.content
+.teacher-group-table-item>.content
 {
     display: flex;
     flex-direction: row;
@@ -8,7 +8,7 @@
     margin: 0px;
 }
 
-.item>.content>*
+.teacher-group-table-item>.content>*
 {
     flex: 1 1 0px;
     display: flex;
@@ -25,17 +25,17 @@
     justify-content: center;
 }
 
-.item>.content .unfold-button, .item>.content .group-name
+.teacher-group-table-item>.content .unfold-button, .teacher-group-table-item>.content .group-name
 {
     flex: 0.5 1 0px;
 }
 
-.item>.sub-content
+.teacher-group-table-item>.sub-content
 {
     margin-left: max(5%, 20px);
 }
 
-.item:nth-child(1)
+.teacher-group-table-item:nth-child(1)
 {
     margin-top: 14px;
 }
