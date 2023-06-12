@@ -126,11 +126,13 @@ const styles = {
         ...css,
         width: "max-content",
         minWidth: "100%",
-        fontSize: '20px'
+        fontSize: '20px',
+        zIndex: 11,
     }),
     control: css => ({
         ...css,
         width: '100%',
-        fontSize: '20px'
+        fontSize: '20px',
+        zIndex: 11,
     }),            
 };

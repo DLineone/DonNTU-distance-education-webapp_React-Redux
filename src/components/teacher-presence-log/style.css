@@ -1,4 +1,4 @@
-.teachaer-presence-log-table
+.teacher-presence-log-table
 {
     display: flex;
     flex-direction: row;
@@ -8,9 +8,12 @@
     font-weight: 400;
     font-size: 28px;
     font-family: "Inria Sans", sans-serif;
+    
+    overflow-x: auto;
+    position: relative;
 }
 
-.teachaer-presence-log-table input
+.teacher-presence-log-table input
 {
     font-family: inherit;
     font-size: inherit;
@@ -18,15 +21,17 @@
     width: 100px;
 }
 
-.teachaer-presence-log-element.top-half-element
+.teacher-presence-log-element.top-half-element
 {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    height: max-content;
+    min-height: max-content;
 }
 
-.edit-button
+.teacher-presence-log-element .edit-button
 {
     display: flex;
     flex-direction: row;
@@ -39,7 +44,7 @@
     cursor: pointer;
 }
 
-.teachaer-presence-log-column
+.teacher-presence-log-column
 {
     display: flex;
     flex-direction: column;
@@ -47,10 +52,21 @@
     justify-content: flex-start;
     flex-shrink: 0;
 
-    min-width: 35px;
+    width: max-content;
+    flex-grow: 1;
+    min-width: max-content;
 }
 
-.teachaer-presence-log-element
+.teacher-presence-log-column.sticky
+{
+    position: sticky;/* required */
+    position: -webkit-sticky;/* required */
+    left: 0px;
+    float: left;
+    z-index: 10;
+}
+
+.teacher-presence-log-element
 {
     font-weight: 400;
     font-size: 28px;
@@ -58,138 +74,74 @@
 
     display: flex;
     flex-direction: column;
+    min-width: max-content;
     width: 100%;
     align-items: center;
     justify-content: center;
 
-    border: 1px solid #d3d3d8;
+    outline: 1px solid #d3d3d8;
 
     background-color: white;
 
     height: 45px;
 }
 
-.teachaer-presence-log-element:nth-child(even)
+.teacher-presence-log-element.expanded
+{
+    box-sizing: border-box;
+    padding: 0px 10px;
+}
+
+.teacher-presence-log-element:nth-child(even)
 {
     background-color: #F1F1F6;
 }
 
-.teachaer-presence-log-element.title
+.teacher-presence-log-element.title
 {
     height: 135px;
 }
 
-.teachaer-presence-log-element.vertical
+.teacher-presence-log-element.vertical
 {
     height: 120px;
     writing-mode: vertical-lr;
-    text-orientation: mixed;
     font-size: 18px;
     white-space: nowrap;
     background-color: white;
 }
 
-.teachaer-presence-log-element.mark
+.teacher-presence-log-element.mark
 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.teachaer-presence-log-element.name
+.teacher-presence-log-element.name
 {
     align-items: flex-start;
 }
 
-/* .teachaer-presence-log
-{
-    height: max-content;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    background-color: white;
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.teacher-presence-log-table {
+    scrollbar-width: auto;
+    scrollbar-color: #7b4255 #ffffff;
 }
 
-.teachaer-presence-log-column
-{
-    display: flex;
-    flex-direction: column;
-    height: max-content;
+/* Chrome, Edge, and Safari */
+.teacher-presence-log-table::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
 }
 
-.teachaer-presence-log-element
-{
-    font-weight: 400;
-    font-size: 28px;
-    font-family: "Inria Sans", sans-serif;
-
-    border: 1px solid #d3d3d8;
-
-    height: 45px;
-    padding: 5px;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
+.teacher-presence-log-table::-webkit-scrollbar-track {
+    background: #ffffff;
 }
 
-.teachaer-presence-log-element.mark
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.teacher-presence-log-table::-webkit-scrollbar-thumb {
+    background-color: #7b4255;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
 }
-
-.teachaer-presence-log-element:nth-child(even)
-{
-    background-color: #F1F1F6;
-}
-
-.teachaer-presence-log-element:nth-child(odd)
-{
-    background-color: white;
-}
-
-.teachaer-presence-log-element.title
-{
-    justify-content: space-around;
-    height: 135px;
-}
-
-.teachaer-presence-log-element.split
-{
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-    height: 135px;
-    width: 50px;
-}
-
-.teachaer-presence-log-element.vertical
-{
-    writing-mode: vertical-rl;
-    height: 135px;
-}
-
-.teachaer-presence-log-sub-element.vertical
-{
-    border-top: 2px solid #d3d3d8;
-    font-weight: 400;
-    width: 100%;
-    height: 100px;
-    font-size: 18px;
-    writing-mode: vertical-rl;
-    white-space: nowrap;
-}
-
-.teachaer-presence-log-sub-element
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 35px;
-}
- */

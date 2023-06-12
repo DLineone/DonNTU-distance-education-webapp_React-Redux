@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useOutletContext, useParams, useSearchParams } from 'react-router-dom';
 import { fetchTeacherDisciplines } from './../../../store/teacher-disciplines-slice';
 import { fetchTeacherGroups, teacherGroupsActions } from './../../../store/teacher-groups-slice';
-import { fetchTeacherLogs, fetchTeacherLogsClassTypes, fetchTeacherLogsTypes, teacherLogActions } from '../../../store/teacher-log-slice';
+import { fetchTeacherLog, fetchTeacherLogClassTypes, fetchTeacherLogExecutionTypes, fetchTeacherLogTypes, teacherLogActions } from '../../../store/teacher-log-slice';
 import TeacherLogLayout from './../../../components/teacher-log-layout/index';
 import TeacherPresenceLog from './../../../components/teacher-presence-log';
+import TeacherProgressLog from './../../../components/teacher-progress-log';
+import { Skeleton } from '@mui/material';
 
 function TeacherLog() {
 
@@ -16,7 +18,7 @@ function TeacherLog() {
     const [setTitle] = useOutletContext();
     const {array_flow: flowsList, name_disc: title} = useSelector(state => state.tc_disciplines.disciplinesList?.find(elem => elem.id_disc == distId)) || {};
     const groupsList = useSelector(state => state.tc_groups.groupsList);
-    const {log, logTypes, classTypes} = useSelector(state => state.tc_log);
+    const {log, logTypes, classTypes, executionTypes} = useSelector(state => state.tc_log);
     const [selectedFlow, setFlow] = useState(null);
     const [selectedGroup, setGroup] = useState(null);
     const [selectedType, setType] = useState(null);
@@ -30,8 +32,9 @@ function TeacherLog() {
         }
         setTitle("ЖУРНАЛЫ");
         dispatch(fetchTeacherDisciplines());
-        dispatch(fetchTeacherLogsTypes());
-        dispatch(fetchTeacherLogsClassTypes());
+        dispatch(fetchTeacherLogTypes());
+        dispatch(fetchTeacherLogClassTypes());
+        dispatch(fetchTeacherLogExecutionTypes());
 
         return () => {
             dispatch(teacherGroupsActions.setTeacherGroups(null));
@@ -56,7 +59,7 @@ function TeacherLog() {
         {
             return;
         }
-        setType(logTypes[0]);
+        setType(logTypes[1]);
     }, [logTypes]);
 
     useEffect(() => {
@@ -84,8 +87,9 @@ function TeacherLog() {
         {
             return;
         }
-        dispatch(fetchTeacherLogs({id_type: selectedType.id_type, id_disc: distId, id_flow: selectedFlow.id_flow, id_group: selectedGroup.id_group}));
-    }, [selectedGroup]);}
+        dispatch(fetchTeacherLog({id_type: selectedType.id_type, id_disc: distId, id_flow: selectedFlow.id_flow, id_group: selectedGroup.id_group}));
+        setEditable(false);
+    }, [selectedGroup, selectedType]);}
 
     return (  
         <div className='teacher-log' style={{height: "100%", width: "100%", display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
@@ -98,19 +102,33 @@ function TeacherLog() {
                 editable={{isEditable, setEditable}}
                 log={log}>
                 
-                {(selectedType.name_type == "посещаемости") ? 
+                {((selectedType.name_type == "посещаемости") && (log?.log?.attendance_group)) ? 
                     <TeacherPresenceLog 
-                        setMark={(obj) => dispatch(teacherLogActions.setMark(obj))}
-                        setDate={(obj) => dispatch(teacherLogActions.setDate(obj))}
-                        setType={(obj) => dispatch(teacherLogActions.setType(obj))}
-                        setEntry={(obj) => dispatch(teacherLogActions.setEntry(obj))} 
-                        deleteEntry={(obj) => dispatch(teacherLogActions.deleteEntry(obj))} 
+                        setMark={(obj) => dispatch(teacherLogActions.setAttendanceMark(obj))}
+                        setDate={(obj) => dispatch(teacherLogActions.setAttendanceDate(obj))}
+                        setType={(obj) => dispatch(teacherLogActions.setAttendanceType(obj))}
+                        setEntry={(obj) => dispatch(teacherLogActions.setAttendanceEntry(obj))} 
+                        deleteEntry={(obj) => dispatch(teacherLogActions.deleteAttendanceEntry(obj))} 
                         classTypes={classTypes} 
                         log={log} 
                         isEditable={isEditable}
                     /> 
+                    : ((selectedType.name_type == "успеваемости") && (log?.log?.Control_educational_process) && (executionTypes)) ? 
+                    <TeacherProgressLog
+                        setProgressOtherTask={(obj) => dispatch(teacherLogActions.setProgressOtherTask(obj))}
+                        setProgressOtherTaskEntryName={(obj) => dispatch(teacherLogActions.setProgressOtherTaskEntryName(obj))}
+                        setProgressOtherTaskEntry={(obj) => dispatch(teacherLogActions.setProgressOtherTaskEntry(obj))}
+                        deleteProgressOtherTaskEntry={(obj) => dispatch(teacherLogActions.deleteProgressOtherTaskEntry(obj))}
+                        setProgressIntersessional={(obj) => dispatch(teacherLogActions.setProgressIntersessional(obj))}
+                        setProgressPasses={(obj) => dispatch(teacherLogActions.setProgressPasses(obj))}
+                        setProgressExam={(obj) => dispatch(teacherLogActions.setProgressExam(obj))}
+                        setProgressOffset={(obj) => dispatch(teacherLogActions.setProgressOffset(obj))}
+                        executionTypes={executionTypes}
+                        isEditable={isEditable}
+                        log={log}
+                    />
                     :
-                    <div className=""></div>
+                    <Skeleton animation="wave" variant='rectangular' width='100%' height='100%'/>
                 }
 
             </TeacherLogLayout>}

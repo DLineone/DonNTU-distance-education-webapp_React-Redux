@@ -163,4 +163,26 @@ hr
     height: 1px;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+.teacher-log-layout>.body {
+    scrollbar-width: auto;
+    scrollbar-color: #7B4255 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+.teacher-log-layout>.body::-webkit-scrollbar {
+    width: 15px;
+}
+
+.teacher-log-layout>.body::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.teacher-log-layout>.body::-webkit-scrollbar-thumb {
+    background-color: #7B4255;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
+}
+
 

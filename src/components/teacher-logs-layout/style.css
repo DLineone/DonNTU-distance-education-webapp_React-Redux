@@ -29,3 +29,25 @@
     overflow-y: auto;
     scrollbar-gutter: stable;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .teacher-logs-layout>.body {
+    scrollbar-width: auto;
+    scrollbar-color: #7b4255 #F1F1F6;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .teacher-logs-layout>.body::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  .teacher-logs-layout>.body::-webkit-scrollbar-track {
+    background: #F1F1F6;
+  }
+
+  .teacher-logs-layout>.body::-webkit-scrollbar-thumb {
+    background-color: #7b4255;
+    border-radius: 15px;
+    border: 3px solid #F1F1F6;
+  }

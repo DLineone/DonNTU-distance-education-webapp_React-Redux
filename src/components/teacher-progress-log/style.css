@@ -1,0 +1,157 @@
+.teacher-progress-log-table
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    font-weight: 400;
+    font-size: 28px;
+    font-family: "Inria Sans", sans-serif;
+    position: relative;
+    overflow-x: auto;
+}
+
+.teacher-progress-log-column
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+
+    width: max-content;
+    flex-grow: 1;
+    min-width: max-content;
+}
+
+.teacher-progress-log-column.sticky
+{
+    position: sticky;/* required */
+    position: -webkit-sticky;/* required */
+    left: 0px;
+    float: left;
+    
+    z-index: 10;
+}
+
+
+.teacher-progress-log-table input
+{
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    width: 150px;
+}
+
+.teacher-progress-log-element
+{
+    font-weight: 400;
+    font-size: 28px;
+    font-family: "Inria Sans", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    outline: 1px solid #d3d3d8;
+
+    background-color: white;
+
+    height: 45px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.teacher-progress-log-element br {
+    width: 100%;
+    flex-grow: 0;
+    content: '';
+}
+
+.teacher-progress-log-element:nth-child(even)
+{
+    background-color: #F1F1F6;
+}
+
+.teacher-progress-log-element.title
+{
+    height: 225px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+}
+
+.teacher-progress-log-element.title-short
+{
+    height: calc(225px / 3);
+    box-sizing: border-box;
+    padding: 5px 10px;
+}
+
+.teacher-progress-log-element.name
+{
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0px 10px;
+}
+
+.teacher-progress-log-element.container
+{
+    flex-direction: row;
+    height: unset;
+    flex-grow: 1;
+    flex-basis: 50%;
+    padding: 0;
+}
+
+.teacher-progress-log-element.expanded
+{
+    box-sizing: border-box;
+    padding: 5px 10px;
+}
+
+.teacher-progress-log-element .edit-button
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.teacher-progress-log-table{
+    scrollbar-width: auto;
+    scrollbar-color: #7b4255 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+.teacher-progress-log-table::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+.teacher-progress-log-table::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.teacher-progress-log-table::-webkit-scrollbar-thumb {
+    background-color: #7b4255;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
+}
+
+.teacher-progress-log-element .edit-button
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
