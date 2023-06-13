@@ -291,7 +291,7 @@ function TeacherProgressLog(props) {
                             <div className='teacher-progress-log-element container'>
                                 <div className='teacher-progress-log-column'>
                                     <div className='teacher-progress-log-element title-short expanded'>
-                                        баллы
+                                        дата
                                     </div>
                                     {props.log.log.Results_control_educational_process.offset.array_students.map(student =>
                                         <div className='teacher-progress-log-element'>
