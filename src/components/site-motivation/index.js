@@ -5,7 +5,7 @@ function SiteMotivation() {
     return ( 
         <div className='site-motivation'>
             <div className="text1">
-                <span className='white'>Маяк</span> розганяет мглу, <br />
+                <span className='white'>Маяк</span> розгоняет мглу, <br />
                 даруя путникам <span className='white'>ориентир</span>
             </div>
             <div className="text2">
