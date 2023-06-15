@@ -23,6 +23,7 @@ function TeacherLog() {
     const [selectedGroup, setGroup] = useState(null);
     const [selectedType, setType] = useState(null);
     const [isEditable, setEditable] = useState(false);
+    const startType = 0;
 
     {useEffect(() => {
         if(!localStorage.getItem("token"))
@@ -59,7 +60,7 @@ function TeacherLog() {
         {
             return;
         }
-        setType(logTypes[1]);
+        setType(logTypes[startType]);
     }, [logTypes]);
 
     useEffect(() => {

@@ -8,7 +8,7 @@ import { IconBell } from '@tabler/icons-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTeacherProfile } from '../../store/teacher-profile-slice';
 import AppLogo from "./../../assets/app-logo.png";
-import { Skeleton } from '@mui/material';
+import { Skeleton, ThemeProvider, Tooltip, createTheme, responsiveFontSizes } from '@mui/material';
 
 function AppLayout(props) {
 
@@ -89,11 +89,21 @@ function AppLayout(props) {
             </div>
             <div className='bottom-part'>
                 <div className='left-menu'>{props?.menuitems?.map(item =>
-                    <div className='menu-left-item'>
-                        <Link to={item.to}>
-                            {item.img}
-                        </Link>
-                    </div>
+                    <Tooltip 
+                        title={item.title} 
+                        disableInteractive placement='right' 
+                        componentsProps={{ 
+                            tooltip: { 
+                                sx: {fontSize: 20, fontFamily: "'Inria Sans', sans-serif"} 
+                            }
+                        }}
+                    >
+                        <div className='menu-left-item'>
+                            <Link to={item.to}>
+                                {item.img}
+                            </Link>
+                        </div>
+                    </Tooltip>
                 )}</div>
                 <div className='content'>
                     {props.outlet}

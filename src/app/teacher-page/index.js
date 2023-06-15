@@ -28,7 +28,7 @@ function TeacherPage() {
             to: '/teacher/disciplins'
         },
         {   
-            title: 'Журнал',           
+            title: 'Журналы',           
             img: <AppToMarksLogo className='menu-left-img'/>,
             to: '/teacher/logs'
         },
