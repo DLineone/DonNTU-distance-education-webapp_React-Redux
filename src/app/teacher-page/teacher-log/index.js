@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useOutletContext, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useOutletContext, useParams } from 'react-router-dom';
 import { fetchTeacherDisciplines } from './../../../store/teacher-disciplines-slice';
 import { fetchTeacherGroups, teacherGroupsActions } from './../../../store/teacher-groups-slice';
 import { fetchTeacherLog, fetchTeacherLogClassTypes, fetchTeacherLogExecutionTypes, fetchTeacherLogTypes, teacherLogActions } from '../../../store/teacher-log-slice';
